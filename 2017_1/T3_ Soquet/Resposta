@@ -1,0 +1,25 @@
+Adriano Zanella Junior
+
+Basei-se no código cliente/servidor UDP disponibilizado na disciplina e desenvolva um servidor de arquivos em UDP.
+Este servidor envia o arquivo em uma única mensagem UDP.
+
+(1) Descubra o tamanho máximo de envio!
+
+(2) O que acontece se o arquivo for maior do que este valor?
+
+A submissão deverá conter um arquivo compactado com três arquivos: um arquivo texto com as respostas das perguntas acima, o código fonte do cliente e do servidor.
+
+1:	pelas limitações impostas pelo código, o arquivo a ser enviado pode ter no maximo 1KB de informação, vendo os comandos
+	byte[] sendData = new byte[1024];
+    byte[] receiveData = new byte[1024];
+que limitam o tamanho da mensagem a 1KB.
+
+2:	Aplicando uma tamnho maior de mensagem, de 1MB, garantido pela alteração nas linhas acima na forma
+    byte[] receiveData = new byte[1024*1024];
+    byte[] sendData = new byte[1024*1024];
+temos o enceramento do servidor no momento de resposta da mensagem, abaixo o erro ocorrido:
+	Exception in thread "main" java.io.IOException: Mensagem muito longa (sendto failed)
+		at java.net.PlainDatagramSocketImpl.send(Native Method)
+		at java.net.DatagramSocket.send(DatagramSocket.java:693)
+		at UDPServer_mod.main(UDPServer_mod.java:33)
+Por algum motivo o programa Cliente teve sucesso no envio do pacote, utilizando o Wireshark, o pacote foi separado em três.
