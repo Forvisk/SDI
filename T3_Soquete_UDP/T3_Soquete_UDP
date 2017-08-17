@@ -1,0 +1,27 @@
+Adriano Zanella Junior.
+
+//---------------------
+Basei-se no código cliente/servidor UDP disponibilizado na disciplina e desenvolva um servidor de arquivos em UDP.
+Este servidor envia o arquivo em uma única mensagem UDP.
+
+(1) Descubra o tamanho máximo de envio!
+
+(2) O que acontece se o arquivo for maior do que este valor?
+
+(3) O que acontece se o cliente for inicializado antes do servidor?
+
+(4) O que acontece se um servidor for lançado em uma porta já utilizada?
+
+A submissão deverá conter um arquivo compactado com três arquivos: um arquivo texto com as respostas das perguntas acima, o código fonte do cliente e do servidor.
+//---------------------
+
+Baseado nos códigos do professor foi criado um cliente UDP que envia um arquivo via Socket UDP para o servidor e este muda para Upper case e  responde ao cliente. O cliente devia gravar essa responsta em um arquivo mas não parece estar funcionando. Então para comparar a resposta com o envio foi por busca dos ultimos termos enviados mostrados no terminal do Cliente e gravado essas resposta num arquivo manualmente.
+O codigo tem duas versões marcadas dentro dele como //v1 e //v2, para testar, uma delas deve enviar 1KB, a outra pode enviar até 1MB. Para trocar as versões precisa comentar as duas linhas abaixos da versão que voce não esta usando e as da versão que se deseja devem estar sem comentario.
+
+R1) O retorno na v1 foi um arquivo de 1023B, em comparação com o arquivo de mais de 31KB que foi enviado. O retorno do servidor deu um arquivo de 1012B, o que siguinifica uma perda de 11B entre o cliente servidor.
+
+R2)
+
+R3)
+
+R4)
