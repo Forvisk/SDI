@@ -8,11 +8,11 @@ import java.net.*;
 
 public class ServerMulticast{
 
-	public void main(){
+	public void main( String[] args){
 		System.out.println("Server iniciado!");
 	}
 
-	private static void envia(){
+	private static void envia( String msgUsu){
 		DatagramSocket socket = null;
 	    DatagramPacket outPacket = null;
 	    byte[] outBuf;
@@ -31,7 +31,7 @@ public class ServerMulticast{
 	        outPacket = new DatagramPacket(outBuf, outBuf.length, address, PORT);
 
 	        socket.send(outPacket);
-	        System.out.println("You: "+msgSend);
+	        System.out.println(msgSend);
 	        try{
 	          Thread.sleep(500);
 	        }catch (InterruptedException ie) {
