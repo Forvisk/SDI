@@ -20,8 +20,16 @@ O codigo tem duas versões marcadas dentro dele como //v1 e //v2, para testar, u
 
 R1) O retorno na v1 foi um arquivo de 1023B, em comparação com o arquivo de mais de 31KB que foi enviado. O retorno do servidor deu um arquivo de 1012B, o que siguinifica uma perda de 11B entre o cliente servidor.
 
-R2)
+R2) O arquivo será cortado e será transmitido apenas o 1023 bytes, tendo um byte de cabeçalho provavelmente.
 
-R3)
+R3) O cliente transmite o arquivo, mas pelo servidor não existir, o cliente não terá retorno e o pacote será perdido. Sem um tratamento de erro no lado do cliente, o programa fica esperando uma resposta que nunca chegará.
 
-R4)
+R4) O java retorna esse erro:
+"	Exception in thread "main" java.net.BindException: Endereço já em uso (Bind failed)
+	at java.net.PlainDatagramSocketImpl.bind0(Native Method)
+	at java.net.AbstractPlainDatagramSocketImpl.bind(AbstractPlainDatagramSocketImpl.java:93)
+	at java.net.DatagramSocket.bind(DatagramSocket.java:392)
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:242)
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:299)
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:271)
+	at UDPServer.main(UDPServer.java:8)	"
