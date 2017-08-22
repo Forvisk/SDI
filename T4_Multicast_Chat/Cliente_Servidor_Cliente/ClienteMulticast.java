@@ -25,7 +25,7 @@ public class ClienteMulticast{
         public void run(){
           recebe();
         }
-    }.start();
+      }.start();
     } catch (Exception ex) {
       ex.printStackTrace();
     }
@@ -34,7 +34,7 @@ public class ClienteMulticast{
 
   private static void envia(){
 
-    
+
   }
 
   private static String lerMensagem(){
@@ -58,7 +58,7 @@ public class ClienteMulticast{
       socket = new MulticastSocket(8888);
       InetAddress address = InetAddress.getByName("224.2.2.3");
       socket.joinGroup(address);
- 
+
       while (true) {
         inPacket = new DatagramPacket(inBuf, inBuf.length);
         socket.receive(inPacket);
