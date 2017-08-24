@@ -17,10 +17,13 @@ public class ServerMulticast{
 	private static final int maxClientsCount = 10;
 	private static final clientThread[] threads = new clientThread[maxClientsCount];
 
+	/*
+	//Rotina envia
 	private static DatagramSocket socketMult = null;
 	private static InetAddress address = null;
 	//private DatagramPacket outPacket = null;
 	private static int PORT = 8888;
+	*/
 
 	public static void main( String[] args){
 		int portNumber = 2222;
@@ -41,7 +44,7 @@ public class ServerMulticast{
 				int i = 0;
 				for (i = 0; i < maxClientsCount; i++){
 					if (threads[i] == null){
-						(threads[i] = new clientThread( clientSocket, threads, this)).start();
+						(threads[i] = new clientThread( clientSocket, threads)).start();
 						break;
 					}
 				}
@@ -54,6 +57,7 @@ public class ServerMulticast{
 		}
 	}
 
+	/*
 	public static void envia( String msgUsu){
 		//DatagramSocket socket = null;
 		DatagramPacket outPacket = null;
@@ -73,4 +77,5 @@ public class ServerMulticast{
 			System.out.println(ioe);
 		}
 	}
+	*/
 }

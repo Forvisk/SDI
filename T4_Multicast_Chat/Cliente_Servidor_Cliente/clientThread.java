@@ -19,13 +19,37 @@ class clientThread extends Thread {
 	private Socket clientSocket = null;
 	private final clientThread[] threads;
 	private int maxClientsCount;
-	private ServerMulticast server= null;
 
-	public clientThread(Socket clientSocket, clientThread[] threads, ServerMulticast server) {
+	//Rotina envia
+	private DatagramSocket socketMult = null;
+	private InetAddress address = null;
+	//private DatagramPacket outPacket = null;
+	private final int PORT = 8888;
+
+	public clientThread(Socket clientSocket, clientThread[] threads) {
 		this.clientSocket = clientSocket;
 		this.threads = threads;
-		this.server = server;
 		maxClientsCount = threads.length;
+	}
+
+	public void envia( String msgUsu){
+		//DatagramSocket socket = null;
+		DatagramPacket outPacket = null;
+		byte[] outBuf;
+
+		try {
+			outBuf = ( msgUsu).getBytes();
+			outPacket = new DatagramPacket(outBuf, outBuf.length, address, PORT);
+			socketMult.send(outPacket);
+			System.out.println(msgUsu);
+			try{
+				Thread.sleep(500);
+			}catch (InterruptedException ie) {
+				System.out.println(ie);
+			}
+		} catch (IOException ioe) {
+			System.out.println(ioe);
+		}
 	}
 
 	public void run() {
@@ -48,7 +72,7 @@ class clientThread extends Thread {
 					+ " entered the chat room !!! ***");
 			}
 		}*/
-		server.envia("Usuario " + name + "entrou no chat!");
+		envia("Usuario " + name + "entrou no chat!");
 		while (true) {
 			String line = is.readLine();
 			if (line.startsWith("/quit")) {
@@ -59,7 +83,7 @@ class clientThread extends Thread {
 					threads[i].os.println("<" + name + "&gr; " + line);
 				}
 			}*/
-			server.envia(">" + name + "&gr; " + line);
+			envia(">" + name + "&gr; " + line);
 		}
 		/*for (int i = 0; i < maxClientsCount; i++) {
 			if (threads[i] != null && threads[i] != this) {
@@ -67,7 +91,7 @@ class clientThread extends Thread {
 					+ " is leaving the chat room !!! ***");
 			}
 		}*/
-		server.envia("O usuario " + name + "Saiu do chat!");
+		envia("O usuario " + name + "Saiu do chat!");
 		//os.println("*** Bye " + name + " ***");
 
 		/*
