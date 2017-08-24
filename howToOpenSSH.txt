@@ -1,0 +1,7 @@
+ssh -X login@IP
+
+subl nomeArq1 nomeArq2
+
+git config --global user.name forvisk
+git config --global user.email adrianojr11@gmail.com
+git clone https://github.com/Forvisk/SDI
