@@ -31,7 +31,7 @@ int *sts_1_svc(char **msg, struct svc_req *req){
 char **gfs_1_svc(void *a, struct svc_req *req){
 	static char *msg;
 	static char *p;
-
+	msg = malloc(512 * sizeof(char));
 	printf("Testando mensagem\n");
 	strcpy( msg, "Teste");
 	p = msg;
