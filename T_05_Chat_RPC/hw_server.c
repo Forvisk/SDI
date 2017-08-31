@@ -6,6 +6,9 @@
    Hello world RPC server -- it just returns the string.
 */
 
+char buffer[512];
+int numCli = 0;
+
 char **hw_1_svc(void *a, struct svc_req *req) {
 	static char msg[256];
 	static char *p;
