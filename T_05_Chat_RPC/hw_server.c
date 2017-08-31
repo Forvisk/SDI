@@ -18,12 +18,11 @@ char **hw_1_svc(void *a, struct svc_req *req) {
 	return(&p);
 }
 
-int * sts_1_svc(char **msg, struct svc_req *req){
+int *sts_1_svc(char *msg, struct svc_req *req){
 	char tam = strlen( msg[0]) +1;
 	int *ret;
 
 	printf("Empilha mendagem\n");
-
 	ret = malloc(sizeof(int));
 
 	return (ret);

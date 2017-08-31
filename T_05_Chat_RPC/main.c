@@ -11,7 +11,7 @@ int main (int argc, char *argv[]) {
 
 	CLIENT *cl;
 	char **p;
-	int **r;
+	int *r;
 	char msg[256];
 	
 	if (argc != 2) {
@@ -35,8 +35,9 @@ int main (int argc, char *argv[]) {
 	}
 	printf("Returned string=%s\n", *p);
 
-	strcpy( msg, "Mensagem do cliete");
+
 	printf("Sending message to server\n");
+	strcpy( msg, "Mensagem do cliete");
 	r = sts_1( msg, cl);
 	if( r == NULL){
 		clnt_perror(cl, argv[1]);
