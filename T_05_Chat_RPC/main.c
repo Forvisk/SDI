@@ -12,7 +12,7 @@ int main (int argc, char *argv[]) {
 	CLIENT *cl;
 	char **p;
 	int *r;
-	char msg[256];
+	char *msg[256];
 	
 	if (argc != 2) {
 		printf("Usage: client hostname\n");
@@ -35,7 +35,7 @@ int main (int argc, char *argv[]) {
 	}
 	printf("Returned string=%s\n", *p);
 
-
+	/*
 	printf("Sending message to server\n");
 	strcpy( msg, "Mensagem do cliete");
 	r = sts_1( msg, cl);
@@ -44,6 +44,7 @@ int main (int argc, char *argv[]) {
 		exit(1);
 	}
 	printf("resposta: %i\n", *r);
+	*/
 
 	printf("Getting response from server:\n");
 	p = gfs_1(NULL, cl);
