@@ -24,7 +24,7 @@ int *sts_1_svc(char **msg, struct svc_req *req){
 
 	printf("Empilha mendagem %s\n", *msg);
 	ret = malloc(sizeof(int));
-
+	ret = 1;
 	return (ret);
 }
 
