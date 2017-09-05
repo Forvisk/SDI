@@ -49,6 +49,7 @@ public class ServerRmi implements ChatRmi {
          System.out.println("Servidor pronto");
       } catch (Exception ex) {
          ex.printStackTrace();
+         System.exit(0);
       } 
    }
 

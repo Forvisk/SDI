@@ -32,7 +32,7 @@ public class ClientRmi {
          Registry registry = LocateRegistry.getRegistry(host);
  
          // Obtém a stub do servidor
-         ChatRmi stub = (ChatRmi) registry.lookup("server");
+         final ChatRmi stub = (ChatRmi) registry.lookup("server");
  
          // Chama o método do servidor e imprime a mensagem
          new Thread(){
