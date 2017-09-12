@@ -17,7 +17,7 @@ public class HelloServer implements HelloWorld {
          HelloWorld stub = (HelloWorld) UnicastRemoteObject.exportObject(server, 0);
          // Registra a stub no RMI Registry para que ela seja obtida pelos clientes
          Registry registry = LocateRegistry.getRegistry();
-         registry.bind("Hello", stub);
+         registry.rebind("Hello2", stub);
          System.out.println("Servidor pronto");
       } catch (Exception ex) {
          ex.printStackTrace();

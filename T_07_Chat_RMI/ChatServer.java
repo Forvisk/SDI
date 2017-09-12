@@ -4,6 +4,9 @@ import java.rmi.server.*;
 import java.rmi.registry.*;
 
 public class ChatServer implements Chat{
+	//String[30] buffer;
+	//int numCient; 
+
 	public ChatServer(){}
 	//main()
 	//clientToServer()
@@ -11,6 +14,7 @@ public class ChatServer implements Chat{
 
 	
 	public static void main(String[] args){
+
 		try{
 			ChatServer server = new ChatServer();
 			Chat stub = (Chat) UnicastRemoteObject.exportObject(server, 0);
