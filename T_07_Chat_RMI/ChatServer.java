@@ -22,7 +22,7 @@ public class ChatServer implements Chat{
 			Registry registry = LocateRegistry.getRegistry();
 			//registry.bind("serverToClient", stub);
 			//registry.bind("clientToServer", stub);
-			registry.bind("serverAZJ", stub);
+			registry.rebind("serverAZJ", stub);
          	System.out.println("Servidor pronto");
 		} catch ( Exception ex){
          ex.printStackTrace();
