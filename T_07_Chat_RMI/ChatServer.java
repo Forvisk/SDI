@@ -5,6 +5,10 @@ import java.rmi.registry.*;
 
 public class ChatServer implements Chat{
 	public ChatServer(){}
+	//main()
+	//clientToServer()
+	//serverToClient()
+
 	
 	public static void main(String[] args){
 		try{
@@ -12,17 +16,18 @@ public class ChatServer implements Chat{
 			Chat stub = (Chat) UnicastRemoteObject.exportObject(server, 0);
 			
 			Registry registry = LocateRegistry.getRegistry();
-			registry.bind("serverToClient", stub);
-			registry.bind("clientToServer", stub);
+			//registry.bind("serverToClient", stub);
+			//registry.bind("clientToServer", stub);
+			registry.bind("serverAZJ", stub);
          	System.out.println("Servidor pronto");
 		} catch ( Exception ex){
          ex.printStackTrace();
-		
+		}
 	}
 	
 	public String serverToClient() throws RemoteException{
 		System.out.println("Executando serverToClient()");
-		return "Hello!!!";
+		return "Vai dormir, cliete!";
 	}
 	
 	public boolean clientToServer(  String mensage) throws RemoteException{

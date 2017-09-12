@@ -1,5 +1,5 @@
 /** ChatClient.java **/
-import java.rmi.*;
+import java.rmi.registry.*;
 
 public class ChatClient {
 	public static void main( String[] args){
@@ -8,9 +8,9 @@ public class ChatClient {
 		try {
 			Registry registry = LocateRegistry.getRegistry(host);
 			
-			Chat stub = (Chat) registry.lookup("clientToServer");
-			Chat stub = (Chat) registry.lookup("serverToClient");
-			
+			//Chat stubC_S = (Chat) registry.lookup("clientToServer");
+			//Chat stubS_C = (Chat) registry.lookup("serverToClient");
+			Chat stub = (Chat) registry.lookup("serverAZJ");
 			//teste envio de mensagem
 			if( stub.clientToServer("Mensagem do Cliente!")){
 				System.out.println("Mensagem enviada!");
