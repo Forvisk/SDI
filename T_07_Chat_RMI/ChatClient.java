@@ -45,8 +45,6 @@ public class ChatClient {
 								System.out.println("Erro no envio!");
 						} catch( RemoteException rmex){
 							System.out.println(rmex);
-						} catch (IOException ioe){
-							System.out.println(ioe);
 						}
 					}
 				}
