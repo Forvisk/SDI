@@ -51,30 +51,32 @@ public class ChatClient {
 						System.out.println(ioe);
 					}
 				}
-			}
-		}.start();
-		/*
-		//teste recebimento de mensagem
-		String msg = stub.serverToClient();
-		System.out.println("Mensagem do servidor: " + msg);
-		*/
-		new Thread(){
-			@Override
-			public void run(){
-				while(true){
-					try{
-						String income = stub.serverToClient( numMsg);
+			}.start();
+			/*
+			//teste recebimento de mensagem
+			String msg = stub.serverToClient();
+			System.out.println("Mensagem do servidor: " + msg);
+			*/
+			new Thread(){
+				@Override
+				public void run(){
+					while(true){
+						try{
+							String income = stub.serverToClient( numMsg);
 
-						if( income != "-"){
-							System.out.println(income);
-							numMsg++;
+							if( income != "-"){
+								System.out.println(income);
+								numMsg++;
+							}
+						}catch( RemoteException re){
+							re.printStackTrace();
 						}
 					}
 				}
 			}.start();
-		} catch (Exception ex) {
+		}catch (Exception ex) {
 			ex.printStackTrace();
-		} 
+		}
 	}
 
 	private static String lerMensagem(){
