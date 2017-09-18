@@ -5,6 +5,8 @@ import java.rmi.registry.*;
 import java.util.ArrayList;
 
 public class ChatServer implements Chat_azj{
+	private ArrayList<String> mensagens;
+	private int numMsg;
 
 	public ChatServer(){}
 	//main()
@@ -13,10 +15,7 @@ public class ChatServer implements Chat_azj{
 
 	
 	public static void main(String[] args){
-		ArrayList<String> mensagens;
-		int numMsg = 1;
-		mensagens = new ArrayList<String>();
-		mensagens.add(": Servidor iniciado!");
+
 		try{
 			ChatServer server = new ChatServer();
 			Chat_azj stub = (Chat_azj) UnicastRemoteObject.exportObject(server, 0);
@@ -29,6 +28,7 @@ public class ChatServer implements Chat_azj{
 		} catch ( Exception ex){
 			ex.printStackTrace();
 		}
+		
 	}
 	
 	public String serverToClient( int lstMsg) throws RemoteException{
