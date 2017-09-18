@@ -4,13 +4,12 @@ import java.rmi.*;
 import java.io.*;
 
 public class ChatClient {
-	private String username;
-	private int numMsg;
+	private static String username;
 
 
-	public void main( String[] args){
+	public static void main( String[] args){
+		int numMsg = 0;
 		String host = (args.length < 1) ? null : args[0];
-		numMsg = 0;
 		
 		try {
 			Registry registry = LocateRegistry.getRegistry(host);

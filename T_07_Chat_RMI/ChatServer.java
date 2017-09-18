@@ -5,11 +5,6 @@ import java.rmi.registry.*;
 import java.util.ArrayList;
 
 public class ChatServer implements Chat_azj{
-	//String[30] buffer;
-	//int numCient; 
-
-	private ArrayList<String> mensagens;
-	private int numMsg;
 
 	public ChatServer(){}
 	//main()
@@ -17,8 +12,9 @@ public class ChatServer implements Chat_azj{
 	//serverToClient()
 
 	
-	public void main(String[] args){
-		numMsg = 1;
+	public static void main(String[] args){
+		ArrayList<String> mensagens;
+		int numMsg = 1;
 		mensagens = new ArrayList<String>();
 		mensagens.add(": Servidor iniciado!");
 		try{
