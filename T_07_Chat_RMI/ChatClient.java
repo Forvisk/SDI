@@ -41,14 +41,13 @@ public class ChatClient {
 				public void run(){
 					while(true){
 						try{
-							if( !stub.clientToServer(username + ": " + lerMensagem())){
+							if( !stub.clientToServer(username + ": " + lerMensagem()))
 								System.out.println("Erro no envio!");
-							}
-						}catch( RemoteException rmex){
+						} catch( RemoteException rmex){
 							System.out.println(rmex);
+						} catch (IOException ioe){
+							System.out.println(ioe);
 						}
-					} catch (IOException ioe){
-						System.out.println(ioe);
 					}
 				}
 			}.start();
