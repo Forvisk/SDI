@@ -44,23 +44,27 @@ public class ChatClient {
 							if( !stub.clientToServer(username + ": " + lerMensagem())){
 								System.out.println("Erro no envio!");
 							}
-						} catch (IOException ioe){
-							System.out.println(ioe);
+						}catch( RemoteException rmex){
+							System.out.println(rmex);
 						}
+					} catch (IOException ioe){
+						System.out.println(ioe);
 					}
 				}
-			}.start();
-			/*
-			//teste recebimento de mensagem
-			String msg = stub.serverToClient();
-			System.out.println("Mensagem do servidor: " + msg);
-			*/
-			new Thread(){
-				@Override
-				public void run(){
-					while(true){
+			}
+		}.start();
+		/*
+		//teste recebimento de mensagem
+		String msg = stub.serverToClient();
+		System.out.println("Mensagem do servidor: " + msg);
+		*/
+		new Thread(){
+			@Override
+			public void run(){
+				while(true){
+					try{
 						String income = stub.serverToClient( numMsg);
-						
+
 						if( income != "-"){
 							System.out.println(income);
 							numMsg++;
@@ -70,9 +74,7 @@ public class ChatClient {
 			}.start();
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		} catch( RemoteException rmex){
-			System.out.println(rmex);
-		}
+		} 
 	}
 
 	private static String lerMensagem(){
