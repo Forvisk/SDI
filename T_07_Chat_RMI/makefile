@@ -1,5 +1,5 @@
 hellomake: 
-	javac Chat.java ChatServer.java ChatClient.java
+	javac Chat_azj.java ChatServer.java ChatClient.java
 
 .PHONY: clean
 
