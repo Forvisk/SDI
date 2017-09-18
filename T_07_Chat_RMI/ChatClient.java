@@ -8,7 +8,7 @@ public class ChatClient {
 
 
 	public static void main( String[] args){
-		int numMsg = 0;
+		//int numMsg = 0;
 		String host = (args.length < 1) ? null : args[0];
 		
 		try {
@@ -56,18 +56,7 @@ public class ChatClient {
 			new Thread(){
 				@Override
 				public void run(){
-					while(true){
-						try{
-							String income = stub.serverToClient( numMsg);
-
-							if( income != "-"){
-								System.out.println(income);
-								numMsg++;
-							}
-						}catch( RemoteException re){
-							re.printStackTrace();
-						}
-					}
+					recebeMensagem( stub)
 				}
 			}.start();
 		}catch (Exception ex) {
@@ -84,5 +73,21 @@ public class ChatClient {
 			System.out.println(ioe);
 		}
 		return ret;
+	}
+
+	private void recebeMensagem( Chat_azj stub){
+		while(true){
+			numMsg = 0;
+			try{
+				String income = stub.serverToClient( numMsg);
+
+				if( income != "-"){
+					System.out.println(income);
+					numMsg++;
+				}
+			}catch( RemoteException re){
+				re.printStackTrace();
+			}
+		}
 	}
 }
