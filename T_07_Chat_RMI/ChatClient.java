@@ -7,7 +7,7 @@ public class ChatClient {
 	private int numMsg;
 
 
-	public static void main( String[] args){
+	public void main( String[] args){
 		String host = (args.length < 1) ? null : args[0];
 		numMsg = 0;
 		
@@ -40,7 +40,7 @@ public class ChatClient {
 				public void run(){
 					while(true){
 						try{
-							if( !stub.clientToServer(usuario + ": " + lerMensagem())){
+							if( !stub.clientToServer(username + ": " + lerMensagem())){
 								System.out.println("Erro no envio!");
 							}
 						} catch (IOException ioe){
