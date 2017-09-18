@@ -47,7 +47,7 @@ public class ChatServer implements Chat_azj{
 			mensagens = new ArrayList<String>();
 			numMsg = 0;
 		}
-		mensagens.add(mensagem);
+		mensagens.add(mensage);
 		numMsg++;
 		return true;
 	}
