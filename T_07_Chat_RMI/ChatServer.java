@@ -4,7 +4,7 @@ import java.rmi.server.*;
 import java.rmi.registry.*;
 import java.util.ArrayList;
 
-public class ChatServer implements Chat{
+public class ChatServer implements Chat_azj{
 	//String[30] buffer;
 	//int numCient; 
 
