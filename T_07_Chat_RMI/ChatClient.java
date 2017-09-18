@@ -3,7 +3,7 @@ import java.rmi.registry.*;
 import java.io.*;
 
 public class ChatClient {
-	private string username;
+	private String username;
 	private int numMsg;
 
 

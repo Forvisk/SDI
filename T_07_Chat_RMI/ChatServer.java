@@ -17,7 +17,7 @@ public class ChatServer implements Chat_azj{
 	//serverToClient()
 
 	
-	public static void main(String[] args){
+	public void main(String[] args){
 		numMsg = 1;
 		mensagens = new ArrayList<String>();
 		mensagens.add(": Servidor iniciado!");
