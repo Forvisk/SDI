@@ -40,7 +40,6 @@ public class ChatClient {
 				public void run(){
 					while(true){
 						try{
-
 							if( !stub.clientToServer(usuario + ": " + lerMensagem())){
 								System.out.println("Erro no envio!");
 							}
@@ -49,7 +48,7 @@ public class ChatClient {
 						}
 					}
 				}
-			}
+			}.start();
 			/*
 			//teste recebimento de mensagem
 			String msg = stub.serverToClient();
@@ -66,7 +65,7 @@ public class ChatClient {
 						}
 					}
 				}
-			}
+			}.start();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
