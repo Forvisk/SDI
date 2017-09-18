@@ -2,10 +2,14 @@
 import java.rmi.*;
 import java.rmi.server.*;
 import java.rmi.registry.*;
+import java.util.ArrayList;
 
 public class ChatServer implements Chat{
 	//String[30] buffer;
 	//int numCient; 
+
+	private ArrayList<String> mensagens;
+	private int numMsg;
 
 	public ChatServer(){}
 	//main()
@@ -14,28 +18,37 @@ public class ChatServer implements Chat{
 
 	
 	public static void main(String[] args){
-
+		numMsg = 1;
+		mensagens = new ArrayList<String>();
+		mensagens.add(": Servidor iniciado!");
 		try{
 			ChatServer server = new ChatServer();
-			Chat stub = (Chat) UnicastRemoteObject.exportObject(server, 0);
+			Chat_azj stub = (Chat_azj) UnicastRemoteObject.exportObject(server, 0);
 			
 			Registry registry = LocateRegistry.getRegistry();
 			//registry.bind("serverToClient", stub);
 			//registry.bind("clientToServer", stub);
 			registry.rebind("serverAZJ", stub);
-         	System.out.println("Servidor pronto");
+			System.out.println("Servidor pronto");
 		} catch ( Exception ex){
-         ex.printStackTrace();
+			ex.printStackTrace();
 		}
 	}
 	
-	public String serverToClient() throws RemoteException{
-		System.out.println("Executando serverToClient()");
-		return "Vai dormir, cliete!";
+	public String serverToClient( int lstMsg) throws RemoteException{
+		if(( lstMsg < 0) || ( lstMsg > mensagens.size()))
+			return "-";
+		return mensagens.get(lstMsg);
 	}
 	
 	public boolean clientToServer(  String mensage) throws RemoteException{
-		System.out.println("Mensagem recebifa : " + mensage);
+		System.out.println(mensage);
+		if (mensagens == null) {
+			mensagens = new ArrayList<String>();
+			numMsg = 0;
+		}
+		mensagens.add(mensagem);
+		numMsg++;
 		return true;
 	}
 	
