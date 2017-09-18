@@ -1,5 +1,6 @@
 /** ChatClient.java **/
 import java.rmi.registry.*;
+import java.rmi.*;
 import java.io.*;
 
 public class ChatClient {
