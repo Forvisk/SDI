@@ -59,6 +59,7 @@ public class ChatClient {
 				public void run(){
 					while(true){
 						String income = stub.serverToClient( numMsg);
+						
 						if( income != "-"){
 							System.out.println(income);
 							numMsg++;
@@ -68,6 +69,8 @@ public class ChatClient {
 			}.start();
 		} catch (Exception ex) {
 			ex.printStackTrace();
+		} catch( RemoteException rmex){
+			System.out.println(rmex);
 		}
 	}
 
