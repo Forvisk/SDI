@@ -5,7 +5,7 @@ import java.io.*;
 
 public class ChatClient {
 	private static String username;
-	private int numMsg;
+	//private int numMsg;
 
 
 	public static void main( String[] args){
@@ -77,8 +77,8 @@ public class ChatClient {
 	}
 
 	private static void recebeMensagem( Chat_azj stub){
+		int numMsg = 0;
 		while(true){
-			numMsg = 0;
 			try{
 				String income = stub.serverToClient( numMsg);
 
