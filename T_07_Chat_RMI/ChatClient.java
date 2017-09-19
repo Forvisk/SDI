@@ -5,6 +5,7 @@ import java.io.*;
 
 public class ChatClient {
 	private static String username;
+	private int numMsg;
 
 
 	public static void main( String[] args){
