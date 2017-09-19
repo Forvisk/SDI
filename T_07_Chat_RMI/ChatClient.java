@@ -56,7 +56,7 @@ public class ChatClient {
 			new Thread(){
 				@Override
 				public void run(){
-					recebeMensagem( stub)
+					recebeMensagem( stub);
 				}
 			}.start();
 		}catch (Exception ex) {
