@@ -76,7 +76,7 @@ public class ChatClient {
 		return ret;
 	}
 
-	private void recebeMensagem( Chat_azj stub){
+	private static void recebeMensagem( Chat_azj stub){
 		while(true){
 			numMsg = 0;
 			try{
