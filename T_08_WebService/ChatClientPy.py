@@ -6,6 +6,8 @@ import zeep
 import threading
 import time
 
+username
+
 class recebeMsg(threading.Thread):
     def run(self):
         #print "iniciando receptor"
@@ -16,39 +18,40 @@ class enviaMsg(threading.Thread):
     def run(self):
         #print "iniciando emissor"
         time.sleep(3)
-        envia()
+        enviar()
         #print "Saindo emissor"
 
 def receber():
     lstMsg = client.service.getNumMsg() - 1
     #lstMsg = 0
     print lstMsg
-    while(client.service.ServerUp(True)):
+    while(true):
         while( lstMsg < client.service.getNumMsg()):
             #time.sleep(0.5)
-            inMsg = client.service.ReceiveMsg(lstMsg)
+            inMsg = client.service.getMesage(lstMsg)
             if not( inMsg == "-"):
                 print inMsg
                 lstMsg+=1
 
-def envia():
-    while(client.service.ServerUp(True)):
-        time.sleep(1)
-        newMsg = raw_input("- ")
-        if(len(newMsg) > 0):
-            if(client.service.ServerUp(True)):
-                if not client.service.SendMsg2(newMsg):
-                    print "falha no envio da mensagem!"
+def enviar():
+	msg
+    while(true):
+    	msg = raw_input(":")
+    	msg = ">>"+username+":"+msg
+    	client.service.sendMesage(msg)
+
                 
         
 
-wsdl = 'http://localhost:9876/chatAZJ?wsdl'
+wsdl = 'http://127.0.0.1:9876/chatAZJ?wsdl'
 client = zeep.Client(wsdl = wsdl)
 
 #print client.service.ReceiveMsg(0)
+username = raw_input("Usuariop:")
+client.loginServer(username)
 
-#thread1 = recebeMsg()
-#thread2 = enviaMsg()
+thread1 = recebeMsg()
+thread2 = enviaMsg()
 
-#thread1.start()
-#thread2.start()
+thread1.start()
+thread2.start()
