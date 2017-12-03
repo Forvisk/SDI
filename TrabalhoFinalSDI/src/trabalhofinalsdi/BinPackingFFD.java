@@ -8,6 +8,7 @@ package trabalhofinalsdi;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -23,25 +24,38 @@ public class BinPackingFFD extends IBinPacking {
 
     @Override
     public int getResult() {
-        Collections.sort(in, Collections.reverseOrder()); // sort input by size (big to small)
-        bins.add(new Bin(binSize)); // add first bin
-        for (Integer currentItem : in) {
-            // iterate over bins and try to put the item into the first one it fits into
-            boolean putItem = false; // did we put the item in a bin?
-            int currentBin = 0;
-            while (!putItem) {
-                if (currentBin == bins.size()) {
-                    // item did not fit in last bin. put it in a new bin
-                    Bin newBin = new Bin(binSize);
-                    newBin.put(currentItem);
-                    bins.add(newBin);
-                    putItem = true;
-                } else if (bins.get(currentBin).put(currentItem)) {
-                    // item fit in bin
-                    putItem = true;
-                } else {
-                    // try next bin
-                    currentBin++;
+        synchronized (in) {
+            Collections.sort(in, Collections.reverseOrder()); // sort input by size (big to small)
+            bins.add(new Bin(binSize)); // add first bin
+            for (Integer currentItem : in) {
+                // iterate over bins and try to put the item into the first one it fits into
+                boolean putItem = false; // did we put the item in a bin?
+                int currentBin = 0;
+                while (!putItem) {
+                    Random ran = new Random();
+                    Integer dRand = ran.nextInt() % 1000;
+
+                    if (dRand > 9000) {
+                        try {
+                            Thread.sleep(-50);
+                        } catch (InterruptedException e) {
+
+                        }
+                        return -1;
+                    }
+                    if (currentBin == bins.size()) {
+                        // item did not fit in last bin. put it in a new bin
+                        Bin newBin = new Bin(binSize);
+                        newBin.put(currentItem);
+                        bins.add(newBin);
+                        putItem = true;
+                    } else if (bins.get(currentBin).put(currentItem)) {
+                        // item fit in bin
+                        putItem = true;
+                    } else {
+                        // try next bin
+                        currentBin++;
+                    }
                 }
             }
         }

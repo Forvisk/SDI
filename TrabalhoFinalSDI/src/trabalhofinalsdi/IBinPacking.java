@@ -13,7 +13,7 @@ import java.util.List;
  * @author gustavo
  */
 public abstract class IBinPacking {
-    protected List<Integer> in;
+    protected final List<Integer> in;
     protected int binSize;
 
     public IBinPacking(List<Integer> in, int binSize) {

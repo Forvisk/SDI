@@ -8,6 +8,7 @@ package trabalhofinalsdi;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -28,10 +29,11 @@ public class TrabalhoFinalSDI {
     static final Logger logger = Logger.getLogger(TrabalhoFinalSDI.class.getName());
     static private FileHandler fh;
 
-    static final byte NUMBER_OF_PROCESSING_THREADS = 2;
+    static final byte NUMBER_OF_PROCESSING_THREADS = 3;
 
     final LinkedHashMap<Integer, Thread> workers = new LinkedHashMap<>();
-    final LinkedHashMap<Integer, Integer> resultados = new LinkedHashMap<>();
+    final LinkedHashMap<Integer, Integer> resultadosBruto = new LinkedHashMap<>();
+    final LinkedHashMap<Integer, Integer> resultadosFFD = new LinkedHashMap<>();
 
     boolean acabou = false;
     boolean comecou = false;
@@ -52,26 +54,30 @@ public class TrabalhoFinalSDI {
             String file = reader.next();
             reader.close();
 
-            try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
-                String[] numerosString = br.readLine().split(" ");
-                
-                List<Integer> numero = new ArrayList<>();
-                
-                for (String s : numerosString){
-                    numero.add(Integer.valueOf(s));
-                }
-                
-                int buckets = Integer.parseInt(br.readLine());
+            final List<Integer> numerosFFD = new ArrayList<>();
+            final List<Integer> numerosBruto = new ArrayList<>();
+            int buckets = 0;
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 
-            } catch (Exception e){
-                
+                String[] numerosString = br.readLine().split(" ");
+
+                for (String s : numerosString) {
+                    numerosFFD.add(Integer.valueOf(s));
+                    numerosBruto.add(Integer.valueOf(s));
+                }
+
+                buckets = Integer.parseInt(br.readLine());
+
+            } catch (Exception e) {
+                System.out.println("Falha ao ler o arquivo!!!!!!@1!@#12&!#!!");
+                System.exit(1);
             }
 
             System.out.println("Primeiro, com força bruta:");
-            int res = executaForcaBruta();
+            int res = executaForcaBruta(numerosBruto, buckets);
             System.out.println("Resultado: " + res);
             System.out.println("Agora o outro:");
-            int res2 = executarOutro();
+            int res2 = executarOutro(numerosFFD, buckets);
             System.out.println("Resultado: " + res2);
             comecou = true;
 
@@ -95,7 +101,8 @@ public class TrabalhoFinalSDI {
     boolean ffdAcabou = false;
     int ffdResultado = 0;
 
-    int executaForcaBruta() {
+    int executaForcaBruta(final List<Integer> numeros, int buckets) {
+        workers.clear();
         brutoResultado = 0;
         Thread manager = new Thread(() -> {
 
@@ -103,7 +110,7 @@ public class TrabalhoFinalSDI {
 
             boolean continua = true;
 
-            createWorkersBruto();
+            createWorkersBruto(numeros, buckets);
             List<Integer> aDeletar = new LinkedList<>();
             List<Integer> resultadosInternos = new LinkedList<>();
             while (continua) {
@@ -119,7 +126,7 @@ public class TrabalhoFinalSDI {
 
                     int id = enty.getKey();
                     Thread t = enty.getValue();
-                    int res = resultados.get(id);
+                    int res = resultadosBruto.get(id);
                     if (!t.isAlive() && res == -1) {
                         aDeletar.add(id);
                     } else {
@@ -127,7 +134,7 @@ public class TrabalhoFinalSDI {
                             totalRes++;
                             resultadosInternos.add(res);
                         }
-                        if (totalRes >= 2) {
+                        if (totalRes >= NUMBER_OF_PROCESSING_THREADS) {
 
                             continua = false;
                             brutoAcabou = true;
@@ -142,7 +149,7 @@ public class TrabalhoFinalSDI {
                         workers.remove(kill);
                     }
                     aDeletar.clear();
-                    createWorkersBruto();
+                    createWorkersBruto(numeros, buckets);
                 }
             }
 
@@ -179,7 +186,8 @@ public class TrabalhoFinalSDI {
         return brutoResultado;
     }
 
-    int executarOutro() {
+    int executarOutro(List<Integer> numeros, int buckets) {
+        workers.clear();
         ffdResultado = 0;
         Thread manager = new Thread(() -> {
 
@@ -187,7 +195,7 @@ public class TrabalhoFinalSDI {
 
             boolean continua = true;
 
-            createWorkersFFD();
+            createWorkersFFD(numeros, buckets);
             List<Integer> aDeletar = new LinkedList<>();
             List<Integer> resultadosInternos = new LinkedList<>();
             while (continua) {
@@ -203,17 +211,27 @@ public class TrabalhoFinalSDI {
 
                     int id = enty.getKey();
                     Thread t = enty.getValue();
-                    int res = resultados.get(id);
-                    if (!t.isAlive() && res == -1) {
-                        aDeletar.add(id);
-                    } else {
-                        if (res != -1) {
-                            totalRes++;
-                            resultadosInternos.add(res);
-                        }
-                        if (totalRes >= 2) {
+                    int res = resultadosFFD.get(id);
+                    if (res != -1) {
+                        totalRes++;
+                        resultadosInternos.add(res);
+
+                        if (totalRes >= NUMBER_OF_PROCESSING_THREADS) {
                             continua = false;
                             break;
+                        }
+                    } else {
+                        if (!t.isAlive() && res == -1) {
+                            aDeletar.add(id);
+                        } else {
+                            if (res != -1) {
+                                totalRes++;
+                                resultadosInternos.add(res);
+                            }
+                            if (totalRes >= NUMBER_OF_PROCESSING_THREADS) {
+                                continua = false;
+                                break;
+                            }
                         }
                     }
 
@@ -224,7 +242,7 @@ public class TrabalhoFinalSDI {
                         workers.remove(kill);
                     }
                     aDeletar.clear();
-                    createWorkersFFD();
+                    createWorkersFFD(numeros, buckets);
                 }
             }
             workers.clear();
@@ -233,7 +251,7 @@ public class TrabalhoFinalSDI {
 
             int part = 0;
 
-            for (Integer resultado : resultadosInternos) {
+            for (int resultado : resultadosInternos) {
                 System.out.println("SOma " + part + " com " + resultado);
                 part += resultado;
             }
@@ -246,12 +264,27 @@ public class TrabalhoFinalSDI {
         });
 
         manager.start();
-        return 0;
+
+        while (ffdResultado == 0) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        System.out.println("Finaliza programa");
+
+        return ffdResultado;
 
     }
 
-    private void createWorkersFFD() {
-        IBinPacking algo = new BinPackingFFD(numerosEntrada, 10);
+    private void createWorkersFFD(List<Integer> numeros, int buckets) {
+        List<Integer> numerosEnviar = new ArrayList<>();
+        for (int n : numeros) {
+            numerosEnviar.add(n);
+        }
+        IBinPacking algo = new BinPackingFFD(numerosEnviar, buckets);
         System.out.println("\n\n*********************** createWorkersFFD:");
         System.out.println("Criando " + (NUMBER_OF_PROCESSING_THREADS - workers.size()) + " trabalhadores");
         while (workers.size() < NUMBER_OF_PROCESSING_THREADS) {
@@ -263,26 +296,31 @@ public class TrabalhoFinalSDI {
                     long estimatedTime;
 
                     startTime = System.currentTimeMillis();
-                    System.out.println("needed bins (" + algo.getClass().getName() + "): " + algo.getResult());
+                    
+                    int result = algo.getResult();
+                    System.out.println("needed bins in FFD: (" + algo.getClass().getName() + "): " + result);
                     estimatedTime = System.currentTimeMillis() - startTime;
                     System.out.println("in " + estimatedTime + " ms");
 
-                    int result = algo.getResult();
 
-                    resultados.replace(id, result);
+                    resultadosFFD.replace(id, result);
 
                     System.out.println("\n\n");
                 }
 
             };
-            resultados.put(id, -1);
+            resultadosFFD.put(id, -1);
             workers.put(id, t);
             t.start();
         }
     }
 
-    private void createWorkersBruto() {
-        IBinPacking algo = new BinPackingForcaBruta(numerosEntrada, 10);
+    private void createWorkersBruto(List<Integer> numeros, int buckets) {
+        List<Integer> numerosEnviar = new ArrayList<>();
+        for (int n : numeros) {
+            numerosEnviar.add(n);
+        }
+        IBinPacking algo = new BinPackingForcaBruta(numerosEnviar, buckets);
         System.out.println("\n\n*********************** createWorkersBruto:");
         System.out.println("Criando " + (NUMBER_OF_PROCESSING_THREADS - workers.size()) + " trabalhadores");
         while (workers.size() < NUMBER_OF_PROCESSING_THREADS) {
@@ -294,19 +332,20 @@ public class TrabalhoFinalSDI {
                     long estimatedTime;
 
                     startTime = System.currentTimeMillis();
-                    System.out.println("needed bins (" + algo.getClass().getName() + "): " + algo.getResult());
+                    
+                    int result = algo.getResult();
+                    System.out.println("needed bins in Bruto: (" + algo.getClass().getName() + "): " + result);
                     estimatedTime = System.currentTimeMillis() - startTime;
                     System.out.println("in " + estimatedTime + " ms");
 
-                    int result = algo.getResult();
 
-                    resultados.replace(id, result);
+                    resultadosBruto.replace(id, result);
 
                     System.out.println("\n\n");
                 }
 
             };
-            resultados.put(id, -1);
+            resultadosBruto.put(id, -1);
             workers.put(id, t);
             t.start();
         }
