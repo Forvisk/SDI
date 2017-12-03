@@ -17,10 +17,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -47,11 +46,11 @@ public class TrabalhoFinalSDI {
         return max.getKey();
     }
 
-    static final Logger logger = Logger.getLogger(TrabalhoFinalSDI.class.getName());
     static private FileHandler fh;
 
     static final byte NUMBER_OF_PROCESSING_THREADS = 3;
-    static final byte NUMBER_OF_WANTED_RESULTS = 3;
+    static final byte NUMBER_OF_WANTED_RESULTS = 15;
+    static final byte NUM_MORTES = 10;
 
     final LinkedHashMap<Integer, Thread> workers = new LinkedHashMap<>();
     final LinkedHashMap<Integer, Integer> resultadosBruto = new LinkedHashMap<>();
@@ -60,67 +59,98 @@ public class TrabalhoFinalSDI {
     boolean acabou = false;
     boolean comecou = false;
 
+    static final Logger LOG = new Logger("logger.txt");
+
     TrabalhoFinalSDI() {
         this.Initialize();
     }
 
+    boolean clientHasGivenFile = false;
+
     private void Initialize() {
 
+        Thread client = generateCliente();
+        client.start();
+
+        while (!acabou) {
+            if (!client.isAlive()) {
+                client = generateCliente();
+            }
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException ex) {
+                LOG.Log(ex.getMessage(), Logger.LogType.ERROR);
+            }
+        }
+    }
+
+    int res = 0;
+    int res2 = 0;
+
+    Thread generateCliente() {
         // Thread do cliente
-        Thread client = new Thread(() -> {
-            System.out.println("Bem vindo cliente!");
-            System.out.println("Iremos começar agora o nosso BinPacking!");
-            System.out.println("Primerio, nos informe o nome do arquivo:");
+        return new Thread(() -> {
 
-            Scanner reader = new Scanner(System.in);
-            String file = reader.next();
-            reader.close();
+            if (!clientHasGivenFile) {
+                System.out.println("Bem vindo cliente!");
+                System.out.println("Iremos começar agora o nosso BinPacking!");
+                System.out.println("Primerio, nos informe o nome do arquivo:");
 
-            final List<Integer> numerosFFD = new ArrayList<>();
-            final List<Integer> numerosBruto = new ArrayList<>();
-            int buckets = 0;
-            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                Scanner reader = new Scanner(System.in);
+                String file = reader.next();
+                reader.close();
 
-                String[] numerosString = br.readLine().split(" ");
+                final List<Integer> numerosFFD = new ArrayList<>();
+                final List<Integer> numerosBruto = new ArrayList<>();
+                int buckets = 0;
+                try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 
-                for (String s : numerosString) {
-                    numerosFFD.add(Integer.valueOf(s));
-                    numerosBruto.add(Integer.valueOf(s));
+                    String[] numerosString = br.readLine().split(" ");
+
+                    for (String s : numerosString) {
+                        numerosFFD.add(Integer.valueOf(s));
+                        numerosBruto.add(Integer.valueOf(s));
+                    }
+
+                    buckets = Integer.parseInt(br.readLine());
+
+                } catch (Exception e) {
+                    System.out.println("Falha ao ler o arquivo!!!!!!@1!@#12&!#!!");
+                    LOG.Log("Falha ao abrir arquivo: " + file, Logger.LogType.ERROR);
+                    System.exit(1);
                 }
 
-                buckets = Integer.parseInt(br.readLine());
-
-            } catch (Exception e) {
-                System.out.println("Falha ao ler o arquivo!!!!!!@1!@#12&!#!!");
-                System.exit(1);
+                System.out.println("Primeiro, com força bruta:");
+                LOG.Log("Forca Bruta iniciada", Logger.LogType.INFO);
+                res = executaForcaBruta(numerosBruto, buckets);
+                System.out.println("Agora o FFD:");
+                LOG.Log("FFD iniciado", Logger.LogType.INFO);
+                res2 = executarOutro(numerosFFD, buckets);
+                comecou = true;
+                clientHasGivenFile = true;
             }
-
-            System.out.println("Primeiro, com força bruta:");
-            int res = executaForcaBruta(numerosBruto, buckets);
-            System.out.println("Agora o FFD:");
-            int res2 = executarOutro(numerosFFD, buckets);
-            comecou = true;
 
             while (!acabou) {
                 try {
                     Thread.sleep(1500);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
+                    LOG.Log(ex.getMessage(), Logger.LogType.ERROR);
                 }
             }
 
             System.out.println("Resultado Forca Bruta: " + res2);
             System.out.println("Resultado FFD: " + res);
 
+            LOG.Log("Programa finalizado", Logger.LogType.INFO);
+
             System.out.println("Cliente acabou");
         });
-
-        client.start();
     }
     // Thread do gerenciador
 
     boolean brutoAcabou = false;
     int brutoResultado = 0;
+
     boolean ffdAcabou = false;
     int ffdResultado = 0;
 
@@ -142,7 +172,7 @@ public class TrabalhoFinalSDI {
                 try {
                     Thread.sleep(1500);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
+                    LOG.Log(ex.getMessage(), Logger.LogType.ERROR);
                 }
 
                 for (Map.Entry<Integer, Thread> enty : workers.entrySet()) {
@@ -151,6 +181,7 @@ public class TrabalhoFinalSDI {
                     Thread t = enty.getValue();
                     int res = resultadosBruto.get(id);
                     if (!t.isAlive() && res == -1) {
+                        LOG.Log("Trabalhador Bruto morreu! Começa outro", Logger.LogType.ERROR);
                         aDeletar.add(id);
                     } else {
                         if (res != -1) {
@@ -192,7 +223,7 @@ public class TrabalhoFinalSDI {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
-                Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
+                LOG.Log(ex.getMessage(), Logger.LogType.ERROR);
             }
         }
 
@@ -219,7 +250,7 @@ public class TrabalhoFinalSDI {
                 try {
                     Thread.sleep(1500);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
+                    LOG.Log(ex.getMessage(), Logger.LogType.ERROR);
                 }
 
                 for (Map.Entry<Integer, Thread> enty : workers.entrySet()) {
@@ -234,10 +265,12 @@ public class TrabalhoFinalSDI {
 
                         if (totalRes >= NUMBER_OF_WANTED_RESULTS) {
                             continua = false;
+                            ffdAcabou = true;
                             break;
                         }
                     } else {
                         if (!t.isAlive() && res == -1) {
+                            LOG.Log("Trabalhador FFD morreu! Começa outro", Logger.LogType.ERROR);
                             aDeletar.add(id);
                         } else {
                             if (res != -1) {
@@ -247,6 +280,7 @@ public class TrabalhoFinalSDI {
                             }
                             if (totalRes >= NUMBER_OF_WANTED_RESULTS) {
                                 continua = false;
+                                ffdAcabou = true;
                                 break;
                             }
                         }
@@ -277,7 +311,7 @@ public class TrabalhoFinalSDI {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
-                Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
+                LOG.Log(ex.getMessage(), Logger.LogType.ERROR);
             }
         }
 
@@ -287,10 +321,13 @@ public class TrabalhoFinalSDI {
 
     }
 
+    int tentativasFFD = 0;
+
     private void createWorkersFFD(List<Integer> numeros, int buckets) {
+        Random randomGenerator = new Random();
         System.out.println("\n\n*********************** createWorkersFFD:");
         System.out.println("Criando " + (NUMBER_OF_PROCESSING_THREADS - workers.size()) + " trabalhadores");
-        while (workers.size() < NUMBER_OF_PROCESSING_THREADS) {
+        while (workers.size() < NUMBER_OF_PROCESSING_THREADS && !ffdAcabou) {
             int id = workers.size();
             final Thread t = new Thread() {
 
@@ -299,7 +336,14 @@ public class TrabalhoFinalSDI {
                     for (int n : numeros) {
                         numerosEnviar.add(n);
                     }
-                    IBinPacking algo = new BinPackingFFD(numerosEnviar, buckets);
+                    boolean mata = false;
+                    if (randomGenerator.nextInt(100) > 50 && tentativasFFD < NUM_MORTES) {
+                        mata = true;
+                        tentativasFFD++;
+                    }
+
+                    IBinPacking algo = new BinPackingFFD(numerosEnviar, buckets, mata);
+
                     long startTime;
                     long estimatedTime;
 
@@ -319,11 +363,14 @@ public class TrabalhoFinalSDI {
         }
     }
 
+    int tentativasBruto = 0;
+
     private void createWorkersBruto(List<Integer> numeros, int buckets) {
 
+        Random randomGenerator = new Random();
         System.out.println("\n\n*********************** createWorkersBruto:");
         System.out.println("Criando " + (NUMBER_OF_PROCESSING_THREADS - workers.size()) + " trabalhadores");
-        while (workers.size() < NUMBER_OF_PROCESSING_THREADS) {
+        while (workers.size() < NUMBER_OF_PROCESSING_THREADS && !brutoAcabou) {
             int id = workers.size();
             final Thread t = new Thread() {
 
@@ -332,7 +379,13 @@ public class TrabalhoFinalSDI {
                     for (int n : numeros) {
                         numerosEnviar.add(n);
                     }
-                    IBinPacking algo = new BinPackingForcaBruta(numerosEnviar, buckets, false);
+                    boolean mata = false;
+                    if (randomGenerator.nextInt(100) > 25 && tentativasBruto < NUM_MORTES) {
+                        tentativasBruto++;
+                        mata = true;
+                    }
+                    IBinPacking algo = new BinPackingForcaBruta(numerosEnviar, buckets, mata);
+
                     long startTime;
                     long estimatedTime;
 
@@ -357,14 +410,6 @@ public class TrabalhoFinalSDI {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
-            //TrabalhoFinalSDI.fh = new FileHandler("/Users/gustavo/Documents/TrabalhoFinalSDI/logs.txt");
-	    TrabalhoFinalSDI.fh = new FileHandler("/Users/adria/Desktop/BCC/SDI/TrabalhoFinalSDI/logs.txt");
-        } catch (IOException | SecurityException ex) {
-            Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        TrabalhoFinalSDI.logger.addHandler(fh);
 
         // ***************
         // Inicia Bins

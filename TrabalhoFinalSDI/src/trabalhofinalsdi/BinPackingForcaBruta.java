@@ -29,6 +29,7 @@ public class BinPackingForcaBruta extends IBinPacking {
      */
     public BinPackingForcaBruta(List<Integer> in, int binSize, boolean crasha) {
         super(in, binSize);
+        devoCrashar = crasha;
         this.currentBestBins = new ArrayList<Bin>();
         // create maximum of needed bins
         for (Integer in1 : in) {
@@ -65,6 +66,7 @@ public class BinPackingForcaBruta extends IBinPacking {
         if (devoCrashar) {
             try {
                 Thread.sleep(-50);
+                int a = 2/0;
             } catch (InterruptedException e) {
                 
             }

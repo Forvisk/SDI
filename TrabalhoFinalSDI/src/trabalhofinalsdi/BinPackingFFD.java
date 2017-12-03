@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import static trabalhofinalsdi.TrabalhoFinalSDI.LOG;
 
 /**
  *
@@ -17,9 +18,12 @@ import java.util.Random;
 public class BinPackingFFD extends IBinPacking {
 
     private List<Bin> bins = new ArrayList<Bin>();
+    
+    boolean mustIDie = false;
 
-    public BinPackingFFD(List<Integer> in, int binSize) {
+    public BinPackingFFD(List<Integer> in, int binSize, boolean shouldIDie) {
         super(in, binSize);
+        mustIDie = shouldIDie;
     }
 
     @Override
@@ -32,10 +36,8 @@ public class BinPackingFFD extends IBinPacking {
                 boolean putItem = false; // did we put the item in a bin?
                 int currentBin = 0;
                 while (!putItem) {
-                    Random ran = new Random();
-                    Integer dRand = ran.nextInt() % 1000;
 
-                    if (dRand > 9000) {
+                    if (mustIDie) {
                         try {
                             Thread.sleep(-50);
                         } catch (InterruptedException e) {
@@ -64,12 +66,12 @@ public class BinPackingFFD extends IBinPacking {
 
     @Override
     public void printBestBins() {
-        TrabalhoFinalSDI.logger.info("Bins:");
+        LOG.Log("Bins:", Logger.LogType.INFO);
         if (bins.size() == in.size()) {
-            TrabalhoFinalSDI.logger.info("each item is in its own bin");
+            LOG.Log("each item is in its own bin", Logger.LogType.INFO);
         } else {
             bins.forEach((bin) -> {
-                TrabalhoFinalSDI.logger.info(bin.toString());
+                LOG.Log(bin.toString(), Logger.LogType.INFO);
             });
         }
     }
