@@ -51,6 +51,7 @@ public class TrabalhoFinalSDI {
     static private FileHandler fh;
 
     static final byte NUMBER_OF_PROCESSING_THREADS = 3;
+    static final byte NUMBER_OF_WANTED_RESULTS = 3;
 
     final LinkedHashMap<Integer, Thread> workers = new LinkedHashMap<>();
     final LinkedHashMap<Integer, Integer> resultadosBruto = new LinkedHashMap<>();
@@ -96,10 +97,8 @@ public class TrabalhoFinalSDI {
 
             System.out.println("Primeiro, com força bruta:");
             int res = executaForcaBruta(numerosBruto, buckets);
-            System.out.println("Resultado: " + res);
-            System.out.println("Agora o outro:");
+            System.out.println("Agora o FFD:");
             int res2 = executarOutro(numerosFFD, buckets);
-            System.out.println("Resultado: " + res2);
             comecou = true;
 
             while (!acabou) {
@@ -109,6 +108,9 @@ public class TrabalhoFinalSDI {
                     Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+
+            System.out.println("Resultado Forca Bruta: " + res2);
+            System.out.println("Resultado FFD: " + res);
 
             System.out.println("Cliente acabou");
         });
@@ -154,8 +156,9 @@ public class TrabalhoFinalSDI {
                         if (res != -1) {
                             totalRes++;
                             resultadosInternos.add(res);
+                            aDeletar.add(id);
                         }
-                        if (totalRes >= NUMBER_OF_PROCESSING_THREADS) {
+                        if (totalRes >= NUMBER_OF_WANTED_RESULTS) {
 
                             continua = false;
                             brutoAcabou = true;
@@ -227,8 +230,9 @@ public class TrabalhoFinalSDI {
                     if (res != -1) {
                         totalRes++;
                         resultadosInternos.add(res);
+                        aDeletar.add(id);
 
-                        if (totalRes >= NUMBER_OF_PROCESSING_THREADS) {
+                        if (totalRes >= NUMBER_OF_WANTED_RESULTS) {
                             continua = false;
                             break;
                         }
@@ -239,8 +243,9 @@ public class TrabalhoFinalSDI {
                             if (res != -1) {
                                 totalRes++;
                                 resultadosInternos.add(res);
+                                aDeletar.add(id);
                             }
-                            if (totalRes >= NUMBER_OF_PROCESSING_THREADS) {
+                            if (totalRes >= NUMBER_OF_WANTED_RESULTS) {
                                 continua = false;
                                 break;
                             }
@@ -301,13 +306,10 @@ public class TrabalhoFinalSDI {
                     startTime = System.currentTimeMillis();
 
                     int result = algo.getResult();
-                    System.out.println("needed bins in FFD: (" + algo.getClass().getName() + "): " + result);
                     estimatedTime = System.currentTimeMillis() - startTime;
-                    System.out.println("in " + estimatedTime + " ms");
+                    System.out.println("Esse FFD levou " + estimatedTime + " ms");
 
                     resultadosFFD.replace(id, result);
-
-                    System.out.println("\n\n");
                 }
 
             };
@@ -330,20 +332,18 @@ public class TrabalhoFinalSDI {
                     for (int n : numeros) {
                         numerosEnviar.add(n);
                     }
-                    IBinPacking algo = new BinPackingForcaBruta(numerosEnviar, buckets);
+                    IBinPacking algo = new BinPackingForcaBruta(numerosEnviar, buckets, false);
                     long startTime;
                     long estimatedTime;
 
                     startTime = System.currentTimeMillis();
 
                     int result = algo.getResult();
-                    System.out.println("needed bins in Bruto: (" + algo.getClass().getName() + "): " + result);
                     estimatedTime = System.currentTimeMillis() - startTime;
-                    System.out.println("in " + estimatedTime + " ms");
+                    System.out.println("Esse Bruto levou " + estimatedTime + " ms");
 
                     resultadosBruto.replace(id, result);
 
-                    System.out.println("\n\n");
                 }
 
             };

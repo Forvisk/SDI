@@ -18,6 +18,7 @@ public class BinPackingForcaBruta extends IBinPacking {
     private List<Bin> bins = new ArrayList<>();
     private int currentBestSolution;
     private List<Bin> currentBestBins;
+    boolean devoCrashar = false;
 
     /**
      * brute force solution to bin packing problem. The Bin Packing problem is
@@ -26,7 +27,7 @@ public class BinPackingForcaBruta extends IBinPacking {
      * @param in
      * @param binSize
      */
-    public BinPackingForcaBruta(List<Integer> in, int binSize) {
+    public BinPackingForcaBruta(List<Integer> in, int binSize, boolean crasha) {
         super(in, binSize);
         this.currentBestBins = new ArrayList<Bin>();
         // create maximum of needed bins
@@ -60,11 +61,8 @@ public class BinPackingForcaBruta extends IBinPacking {
             }
             return;
         }
-        Random ran = new Random();
-        Integer dRand = ran.nextInt() % 1000;
 
-
-        if (dRand > 9000) {
+        if (devoCrashar) {
             try {
                 Thread.sleep(-50);
             } catch (InterruptedException e) {
