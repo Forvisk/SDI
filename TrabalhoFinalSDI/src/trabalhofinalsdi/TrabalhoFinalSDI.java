@@ -358,7 +358,8 @@ public class TrabalhoFinalSDI {
      */
     public static void main(String[] args) {
         try {
-            TrabalhoFinalSDI.fh = new FileHandler("/Users/gustavo/Documents/TrabalhoFinalSDI/logs.txt");
+            //TrabalhoFinalSDI.fh = new FileHandler("/Users/gustavo/Documents/TrabalhoFinalSDI/logs.txt");
+	    TrabalhoFinalSDI.fh = new FileHandler("/Users/adria/Desktop/BCC/SDI/TrabalhoFinalSDI/logs.txt");
         } catch (IOException | SecurityException ex) {
             Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
         }
