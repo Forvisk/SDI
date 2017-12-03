@@ -5,12 +5,16 @@
  */
 package trabalhofinalsdi;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,9 +31,6 @@ public class TrabalhoFinalSDI {
     static final byte NUMBER_OF_PROCESSING_THREADS = 2;
 
     final LinkedHashMap<Integer, Thread> workers = new LinkedHashMap<>();
-
-    final List<Integer> numerosEntrada = Arrays.asList(1, 1, 2, 3, 7, 8, 9, 10, 1, 9, 1, 2, 2,3,3,5,8,4,3,1,4,21,2,4,12);
-
     final LinkedHashMap<Integer, Integer> resultados = new LinkedHashMap<>();
 
     boolean acabou = false;
@@ -43,17 +44,42 @@ public class TrabalhoFinalSDI {
 
         // Thread do cliente
         Thread client = new Thread(() -> {
+            System.out.println("Bem vindo cliente!");
+            System.out.println("Iremos começar agora o nosso BinPacking!");
+            System.out.println("Primerio, nos informe o nome do arquivo:");
+
+            Scanner reader = new Scanner(System.in);
+            String file = reader.next();
+            reader.close();
+
+            try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+                String[] numerosString = br.readLine().split(" ");
+                
+                List<Integer> numero = new ArrayList<>();
+                
+                for (String s : numerosString){
+                    numero.add(Integer.valueOf(s));
+                }
+                
+                int buckets = Integer.parseInt(br.readLine());
+
+            } catch (Exception e){
+                
+            }
+
+            System.out.println("Primeiro, com força bruta:");
+            int res = executaForcaBruta();
+            System.out.println("Resultado: " + res);
+            System.out.println("Agora o outro:");
+            int res2 = executarOutro();
+            System.out.println("Resultado: " + res2);
+            comecou = true;
+
             while (!acabou) {
-                if (!comecou) {
-                    System.out.println("Bem vindo cliente!");
-                    System.out.println("Iremos começar agora o nosso BinPacking!");
-                    System.out.println("Primeiro, com força bruta:");
-                    int res = executaForcaBruta();
-                    System.out.println("Resultado: " + res);
-                    System.out.println("Agora o outro:");
-                    int res2 = executarOutro();
-                    System.out.println("Resultado: " + res2);
-                    comecou = true;
+                try {
+                    Thread.sleep(1500);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(TrabalhoFinalSDI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
 
