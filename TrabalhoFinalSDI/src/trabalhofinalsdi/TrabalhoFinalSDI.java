@@ -11,10 +11,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -25,6 +27,25 @@ import java.util.logging.Logger;
  * @author gustavo
  */
 public class TrabalhoFinalSDI {
+
+    public static <T> T mostCommon(List<T> list) {
+        Map<T, Integer> map = new HashMap<>();
+
+        for (T t : list) {
+            Integer val = map.get(t);
+            map.put(t, val == null ? 1 : val + 1);
+        }
+
+        Entry<T, Integer> max = null;
+
+        for (Entry<T, Integer> e : map.entrySet()) {
+            if (max == null || e.getValue() > max.getValue()) {
+                max = e;
+            }
+        }
+
+        return max.getKey();
+    }
 
     static final Logger logger = Logger.getLogger(TrabalhoFinalSDI.class.getName());
     static private FileHandler fh;
@@ -157,16 +178,7 @@ public class TrabalhoFinalSDI {
 
             acabou = true;
 
-            int part = 0;
-
-            for (Integer resultado : resultadosInternos) {
-                System.out.println("SOma " + part + " com " + resultado);
-                part += resultado;
-            }
-            System.out.println("Soma: " + part);
-            System.out.println("Divide por " + resultadosInternos.size());
-            part /= resultadosInternos.size();
-            System.out.println("DEU: " + part);
+            int part = mostCommon(resultadosInternos);
 
             brutoResultado = part;
         });
@@ -249,16 +261,7 @@ public class TrabalhoFinalSDI {
 
             acabou = true;
 
-            int part = 0;
-
-            for (int resultado : resultadosInternos) {
-                System.out.println("SOma " + part + " com " + resultado);
-                part += resultado;
-            }
-            System.out.println("Soma: " + part);
-            System.out.println("Divide por " + resultadosInternos.size());
-            part /= resultadosInternos.size();
-            System.out.println("DEU: " + part);
+            int part = mostCommon(resultadosInternos);
 
             ffdResultado = part;
         });
@@ -280,11 +283,6 @@ public class TrabalhoFinalSDI {
     }
 
     private void createWorkersFFD(List<Integer> numeros, int buckets) {
-        List<Integer> numerosEnviar = new ArrayList<>();
-        for (int n : numeros) {
-            numerosEnviar.add(n);
-        }
-        IBinPacking algo = new BinPackingFFD(numerosEnviar, buckets);
         System.out.println("\n\n*********************** createWorkersFFD:");
         System.out.println("Criando " + (NUMBER_OF_PROCESSING_THREADS - workers.size()) + " trabalhadores");
         while (workers.size() < NUMBER_OF_PROCESSING_THREADS) {
@@ -292,16 +290,20 @@ public class TrabalhoFinalSDI {
             final Thread t = new Thread() {
 
                 public void run() {
+                    List<Integer> numerosEnviar = new ArrayList<>();
+                    for (int n : numeros) {
+                        numerosEnviar.add(n);
+                    }
+                    IBinPacking algo = new BinPackingFFD(numerosEnviar, buckets);
                     long startTime;
                     long estimatedTime;
 
                     startTime = System.currentTimeMillis();
-                    
+
                     int result = algo.getResult();
                     System.out.println("needed bins in FFD: (" + algo.getClass().getName() + "): " + result);
                     estimatedTime = System.currentTimeMillis() - startTime;
                     System.out.println("in " + estimatedTime + " ms");
-
 
                     resultadosFFD.replace(id, result);
 
@@ -316,11 +318,7 @@ public class TrabalhoFinalSDI {
     }
 
     private void createWorkersBruto(List<Integer> numeros, int buckets) {
-        List<Integer> numerosEnviar = new ArrayList<>();
-        for (int n : numeros) {
-            numerosEnviar.add(n);
-        }
-        IBinPacking algo = new BinPackingForcaBruta(numerosEnviar, buckets);
+
         System.out.println("\n\n*********************** createWorkersBruto:");
         System.out.println("Criando " + (NUMBER_OF_PROCESSING_THREADS - workers.size()) + " trabalhadores");
         while (workers.size() < NUMBER_OF_PROCESSING_THREADS) {
@@ -328,16 +326,20 @@ public class TrabalhoFinalSDI {
             final Thread t = new Thread() {
 
                 public void run() {
+                    List<Integer> numerosEnviar = new ArrayList<>();
+                    for (int n : numeros) {
+                        numerosEnviar.add(n);
+                    }
+                    IBinPacking algo = new BinPackingForcaBruta(numerosEnviar, buckets);
                     long startTime;
                     long estimatedTime;
 
                     startTime = System.currentTimeMillis();
-                    
+
                     int result = algo.getResult();
                     System.out.println("needed bins in Bruto: (" + algo.getClass().getName() + "): " + result);
                     estimatedTime = System.currentTimeMillis() - startTime;
                     System.out.println("in " + estimatedTime + " ms");
-
 
                     resultadosBruto.replace(id, result);
 
