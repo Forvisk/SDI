@@ -1,121 +1,148 @@
-[2017/12/03 20:37:34:241][   ERRO   ] -> Falha ao abrir arquivo: asd
-[2017/12/03 20:37:46:053][   INFO   ] -> Forca Bruta iniciada
-[2017/12/03 20:37:47:578][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:37:47:579][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:37:47:580][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:37:49:585][   INFO   ] -> FFD iniciado
-[2017/12/03 20:37:51:100][   INFO   ] -> Programa finalizado
-[2017/12/03 20:39:41:828][   INFO   ] -> Forca Bruta iniciada
-[2017/12/03 20:39:43:350][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:43:351][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:43:352][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:44:858][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:44:860][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:44:860][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:46:362][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:46:363][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:46:363][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:47:868][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:47:869][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:39:49:389][   INFO   ] -> FFD iniciado
-[2017/12/03 20:39:50:897][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:39:50:898][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:39:50:898][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:39:52:405][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:39:52:406][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:39:52:407][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:39:53:911][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:39:53:912][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:39:53:914][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:39:55:421][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:38:262][   INFO   ] -> Forca Bruta iniciada
-[2017/12/03 20:41:39:785][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:39:787][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:39:788][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:41:294][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:41:295][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:41:296][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:42:802][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:42:803][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:42:804][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:44:307][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:41:45:829][   INFO   ] -> FFD iniciado
-[2017/12/03 20:41:47:335][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:47:336][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:47:337][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:48:843][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:48:844][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:48:845][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:50:352][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:50:353][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:50:355][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:51:861][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:51:862][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:41:53:377][   INFO   ] -> Programa finalizado
-[2017/12/03 20:44:09:322][   INFO   ] -> Forca Bruta iniciada
-[2017/12/03 20:44:10:858][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:10:860][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:10:861][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:12:368][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:12:368][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:12:369][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:13:874][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:13:875][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:13:876][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:15:379][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:15:380][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:15:382][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:16:885][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:16:886][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:16:887][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:18:389][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:18:390][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:18:391][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:19:893][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:19:894][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:19:896][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:44:21:423][   INFO   ] -> FFD iniciado
-[2017/12/03 20:44:22:931][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:22:932][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:22:933][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:24:440][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:24:441][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:24:445][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:25:948][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:25:948][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:25:950][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:27:455][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:27:456][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:44:27:457][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:46:01:291][   INFO   ] -> Forca Bruta iniciada
-[2017/12/03 20:46:02:819][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:46:04:330][   INFO   ] -> FFD iniciado
-[2017/12/03 20:46:05:835][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:46:05:837][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:46:07:343][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:46:07:343][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:46:08:848][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:46:08:848][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:46:08:851][   INFO   ] -> Programa finalizado
-[2017/12/03 20:48:12:147][   INFO   ] -> Forca Bruta iniciada
-[2017/12/03 20:48:13:681][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:13:682][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:13:683][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:15:188][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:15:189][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:16:692][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:16:693][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:18:200][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:18:201][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:19:704][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
-[2017/12/03 20:48:25:755][   INFO   ] -> FFD iniciado
-[2017/12/03 20:48:27:268][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:48:28:773][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:48:30:278][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:48:31:783][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:48:33:287][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:48:34:790][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:48:36:292][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:48:36:293][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:48:37:797][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
-[2017/12/03 20:48:37:818][   INFO   ] -> Programa finalizado
+[2017/12/03 22:59:06:889][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 22:59:08:400][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 22:59:08:400][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 22:59:08:401][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 22:59:11:412][   INFO   ] -> FFD iniciado
+[2017/12/03 22:59:12:922][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 22:59:14:426][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 22:59:14:426][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:02:50:778][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:02:52:288][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:02:52:289][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:02:52:289][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:02:55:303][   INFO   ] -> FFD iniciado
+[2017/12/03 23:02:56:768][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:02:56:810][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:02:56:810][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:02:58:276][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:02:58:276][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:02:58:276][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:02:58:312][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:01:298][   INFO   ] -> FFD iniciado
+[2017/12/03 23:03:02:775][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:03:02:802][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:02:802][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:02:803][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:04:277][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:04:278][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:04:289][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:07:787][   INFO   ] -> FFD iniciado
+[2017/12/03 23:03:08:787][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:03:09:292][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:10:293][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:10:293][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:10:293][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:10:797][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:10:797][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:13:314][   INFO   ] -> FFD iniciado
+[2017/12/03 23:03:14:795][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:03:14:817][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:14:817][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:14:818][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:16:300][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:16:301][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:16:301][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:19:316][   INFO   ] -> FFD iniciado
+[2017/12/03 23:03:20:810][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:03:20:819][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:22:316][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:22:316][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:22:324][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:22:324][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:23:830][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:25:333][   INFO   ] -> FFD iniciado
+[2017/12/03 23:03:26:818][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:03:26:839][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:28:325][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:28:326][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:28:326][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:28:344][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:28:345][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:31:340][   INFO   ] -> FFD iniciado
+[2017/12/03 23:03:32:820][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:03:34:322][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:34:322][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:34:322][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:34:347][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:34:347][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:34:348][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:37:348][   INFO   ] -> FFD iniciado
+[2017/12/03 23:03:38:831][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:03:38:855][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:40:357][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:40:357][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:41:840][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:41:841][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:41:852][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:43:359][   INFO   ] -> FFD iniciado
+[2017/12/03 23:03:44:847][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:03:44:864][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:44:864][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:46:353][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:46:354][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:46:365][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:47:857][   ERRO   ] -> Trabalhador Bruto morreu! Começa outro
+[2017/12/03 23:03:49:372][   INFO   ] -> FFD iniciado
+[2017/12/03 23:03:50:876][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:50:877][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:03:50:888][   ERRO   ] -> Trabalhador FFD morreu! Começa outro
+[2017/12/03 23:05:07:646][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:10:665][   INFO   ] -> FFD iniciado
+[2017/12/03 23:05:12:137][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:15:645][   INFO   ] -> FFD iniciado
+[2017/12/03 23:05:16:639][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:19:653][   INFO   ] -> FFD iniciado
+[2017/12/03 23:05:21:144][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:24:156][   INFO   ] -> FFD iniciado
+[2017/12/03 23:05:25:648][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:28:660][   INFO   ] -> FFD iniciado
+[2017/12/03 23:05:30:149][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:33:660][   INFO   ] -> FFD iniciado
+[2017/12/03 23:05:34:650][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:37:663][   INFO   ] -> FFD iniciado
+[2017/12/03 23:05:39:159][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:42:672][   INFO   ] -> FFD iniciado
+[2017/12/03 23:05:43:665][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:46:676][   INFO   ] -> FFD iniciado
+[2017/12/03 23:05:48:168][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:05:51:177][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:13:116][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:16:632][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:17:613][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:20:623][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:22:120][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:25:625][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:26:625][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:29:646][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:31:129][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:34:637][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:35:638][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:38:645][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:40:143][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:43:156][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:44:650][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:47:664][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:49:152][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:52:162][   INFO   ] -> FFD iniciado
+[2017/12/03 23:08:53:659][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:08:56:679][   INFO   ] -> FFD iniciado
+[2017/12/03 23:13:25:379][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:13:28:398][   INFO   ] -> FFD iniciado
+[2017/12/03 23:13:29:872][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:13:32:889][   INFO   ] -> FFD iniciado
+[2017/12/03 23:13:34:383][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:13:37:393][   INFO   ] -> FFD iniciado
+[2017/12/03 23:13:38:887][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:13:41:908][   INFO   ] -> FFD iniciado
+[2017/12/03 23:13:43:396][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:13:46:903][   INFO   ] -> FFD iniciado
+[2017/12/03 23:13:47:902][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:13:51:418][   INFO   ] -> FFD iniciado
+[2017/12/03 23:13:52:405][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:13:55:423][   INFO   ] -> FFD iniciado
+[2017/12/03 23:13:56:912][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:13:59:937][   INFO   ] -> FFD iniciado
+[2017/12/03 23:14:01:414][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:14:04:427][   INFO   ] -> FFD iniciado
+[2017/12/03 23:14:05:920][   INFO   ] -> Forca Bruta iniciada
+[2017/12/03 23:14:08:936][   INFO   ] -> FFD iniciado

@@ -22,11 +22,21 @@ class Logger {
 
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss:SSS");
     private Path filePath;
+    private Path filePathResults;
 
     public Logger(String file) {
-        
+        filePathResults = Paths.get("resultados.txt");
         filePath = Paths.get(file);
         File f = new File(file);
+        if (!f.exists() && !f.isDirectory()) {
+            try {
+                f.createNewFile();
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(Logger.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        f = new File("resultados.txt");
         if (!f.exists() && !f.isDirectory()) {
             try {
                 f.createNewFile();
@@ -40,8 +50,12 @@ class Logger {
         LocalDateTime now = LocalDateTime.now();
         return dtf.format(now);
     }
-
+    
     void Log(String message, LogType type) {
+        Log(message, type, false);
+    }
+
+    void Log(String message, LogType type, boolean newFile) {
         String tag;
         switch (type) {
             case INFO:
@@ -66,12 +80,19 @@ class Logger {
         sb.append("\n");
 
         System.out.println(sb.toString());
-        try {
-            Files.write(filePath, sb.toString().getBytes(), StandardOpenOption.APPEND);
-        } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(Logger.class.getName()).log(Level.SEVERE, null, ex);
+        if (newFile) {
+            try {
+                Files.write(filePathResults, sb.toString().getBytes(), StandardOpenOption.APPEND);
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(Logger.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                Files.write(filePath, sb.toString().getBytes(), StandardOpenOption.APPEND);
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(Logger.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-
     }
 
 }

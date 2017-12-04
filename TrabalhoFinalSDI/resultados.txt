@@ -1,0 +1,48 @@
+Kill BackEnd:
+[2017/12/03 22:59:16:434][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1893.0ms total e em media 189.3ms, FFD: 5 e levou 5.0ms total e em media 0.5ms.
+[2017/12/03 23:02:59:826][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1959.0ms total e em media 195.9ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:03:05:815][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1375.0ms total e em media 137.5ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:03:12:310][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1290.0ms total e em media 129.0ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:03:17:829][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1350.0ms total e em media 135.0ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:03:23:836][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1314.0ms total e em media 131.4ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:03:29:866][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1190.0ms total e em media 119.0ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:03:35:855][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1245.0ms total e em media 124.5ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:03:41:877][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1328.0ms total e em media 132.8ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:03:47:881][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1344.0ms total e em media 134.4ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+
+Sem Kill:
+[2017/12/03 23:03:54:398][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1138.0ms total e em media 113.8ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:05:13:681][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 2133.0ms total e em media 213.3ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:05:18:660][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1465.0ms total e em media 146.5ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:05:22:670][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1064.0ms total e em media 106.4ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:05:27:172][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1147.0ms total e em media 114.7ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:05:31:670][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1165.0ms total e em media 116.5ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:05:36:671][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1264.0ms total e em media 126.4ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:05:40:673][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1019.0ms total e em media 101.9ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:05:45:685][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1098.0ms total e em media 109.8ms, FFD: 5 e levou 2.0ms total e em media 0.2ms.
+[2017/12/03 23:05:49:688][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1064.0ms total e em media 106.4ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+
+Kill: FrontEnd:
+[2017/12/03 23:05:54:190][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1014.0ms total e em media 101.4ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:08:19:647][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 2261.0ms total e em media 226.1ms, FFD: 5 e levou 2.0ms total e em media 0.2ms.
+[2017/12/03 23:08:24:125][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1687.0ms total e em media 168.7ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:08:28:639][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1119.0ms total e em media 111.9ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:08:32:668][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1050.0ms total e em media 105.0ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:08:37:649][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1125.0ms total e em media 112.5ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:08:41:659][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1083.0ms total e em media 108.3ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:08:46:178][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1120.0ms total e em media 112.0ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:08:50:679][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1115.0ms total e em media 111.5ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:08:55:174][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1049.0ms total e em media 104.9ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:08:59:696][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1066.0ms total e em media 106.6ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+
+Reultado errado:
+[2017/12/03 23:13:31:417][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 2465.0ms total e em media 246.5ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:13:35:901][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1676.0ms total e em media 167.6ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:13:40:903][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1174.0ms total e em media 117.4ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:13:45:419][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1095.0ms total e em media 109.5ms, FFD: 5 e levou 2.0ms total e em media 0.2ms.
+[2017/12/03 23:13:50:411][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1077.0ms total e em media 107.7ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:13:54:432][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1112.0ms total e em media 111.2ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:13:58:440][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1106.0ms total e em media 110.6ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:14:02:955][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1253.0ms total e em media 125.3ms, FFD: 5 e levou 1.0ms total e em media 0.1ms.
+[2017/12/03 23:14:07:436][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1217.0ms total e em media 121.7ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.
+[2017/12/03 23:14:11:944][   INFO   ] -> Programa finalizado resultados: Forca Bruta: 5 e levou 1177.0ms total e em media 117.7ms, FFD: 5 e levou 0.0ms total e em media 0.0ms.

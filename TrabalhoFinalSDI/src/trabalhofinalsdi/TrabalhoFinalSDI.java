@@ -48,18 +48,27 @@ public class TrabalhoFinalSDI {
 
     static private FileHandler fh;
 
-    static final byte NUMBER_OF_PROCESSING_THREADS = 3;
-    static final byte NUMBER_OF_WANTED_RESULTS = 15;
-    static final byte NUM_MORTES = 10;
+    static final byte NUMBER_OF_PROCESSING_THREADS = 5;
+    static final byte NUMBER_OF_WANTED_RESULTS = 10;
+    static final byte NUM_MORTES = 0;
+
+    final Random RANDOMIZER = new Random();
 
     final LinkedHashMap<Integer, Thread> workers = new LinkedHashMap<>();
     final LinkedHashMap<Integer, Integer> resultadosBruto = new LinkedHashMap<>();
     final LinkedHashMap<Integer, Integer> resultadosFFD = new LinkedHashMap<>();
 
+    boolean teste = true;
+
     boolean acabou = false;
     boolean comecou = false;
 
     static final Logger LOG = new Logger("logger.txt");
+
+    double tempoMedioBruto = 0;
+    double tempoMedioFFD = 0;
+    double tempoTotalBruto;
+    double tempoTotalFFD;
 
     TrabalhoFinalSDI() {
         this.Initialize();
@@ -92,13 +101,18 @@ public class TrabalhoFinalSDI {
         return new Thread(() -> {
 
             if (!clientHasGivenFile) {
-                System.out.println("Bem vindo cliente!");
-                System.out.println("Iremos começar agora o nosso BinPacking!");
-                System.out.println("Primerio, nos informe o nome do arquivo:");
+                String file;
+                if (!teste) {
+                    System.out.println("Bem vindo cliente!");
+                    System.out.println("Iremos começar agora o nosso BinPacking!");
+                    System.out.println("Primerio, nos informe o nome do arquivo:");
 
-                Scanner reader = new Scanner(System.in);
-                String file = reader.next();
-                reader.close();
+                    Scanner reader = new Scanner(System.in);
+                    file = reader.next();
+                    reader.close();
+                } else {
+                    file = "input.txt";
+                }
 
                 final List<Integer> numerosFFD = new ArrayList<>();
                 final List<Integer> numerosBruto = new ArrayList<>();
@@ -141,7 +155,8 @@ public class TrabalhoFinalSDI {
             System.out.println("Resultado Forca Bruta: " + res2);
             System.out.println("Resultado FFD: " + res);
 
-            LOG.Log("Programa finalizado", Logger.LogType.INFO);
+            LOG.Log("Programa finalizado resultados: Forca Bruta: " + res + " e levou " + tempoTotalBruto + "ms total e em media " + tempoMedioBruto
+                    + "ms, FFD: " + res2 + " e levou " + tempoTotalFFD + "ms total e em media " + tempoMedioFFD + "ms.", Logger.LogType.INFO, true);
 
             System.out.println("Cliente acabou");
         });
@@ -213,6 +228,9 @@ public class TrabalhoFinalSDI {
             acabou = true;
 
             int part = mostCommon(resultadosInternos);
+
+            tempoTotalBruto = tempoMedioBruto;
+            tempoMedioBruto /= resultadosInternos.size();
 
             brutoResultado = part;
         });
@@ -302,6 +320,9 @@ public class TrabalhoFinalSDI {
 
             int part = mostCommon(resultadosInternos);
 
+            tempoTotalFFD = tempoMedioFFD;
+            tempoMedioFFD /= resultadosInternos.size();
+
             ffdResultado = part;
         });
 
@@ -350,7 +371,11 @@ public class TrabalhoFinalSDI {
                     startTime = System.currentTimeMillis();
 
                     int result = algo.getResult();
+                    if (RANDOMIZER.nextInt(100) > 75) {
+                        result += 2;
+                    }
                     estimatedTime = System.currentTimeMillis() - startTime;
+                    tempoMedioFFD += estimatedTime;
                     System.out.println("Esse FFD levou " + estimatedTime + " ms");
 
                     resultadosFFD.replace(id, result);
@@ -392,7 +417,11 @@ public class TrabalhoFinalSDI {
                     startTime = System.currentTimeMillis();
 
                     int result = algo.getResult();
+                    if (RANDOMIZER.nextInt(100) > 75) {
+                        result += 2;
+                    }
                     estimatedTime = System.currentTimeMillis() - startTime;
+                    tempoMedioBruto += estimatedTime;
                     System.out.println("Esse Bruto levou " + estimatedTime + " ms");
 
                     resultadosBruto.replace(id, result);
@@ -414,7 +443,9 @@ public class TrabalhoFinalSDI {
         // ***************
         // Inicia Bins
         // ***************
-        TrabalhoFinalSDI trabalho = new TrabalhoFinalSDI();
+        for (int i = 0; i < 10; i++) {
+            new TrabalhoFinalSDI();
+        }
 
     }
 
